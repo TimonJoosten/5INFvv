@@ -1,0 +1,6 @@
+gewicht = input("Wat is je gewicht: ")
+gewicht = int(gewicht)
+lengte = input("Wat is je lengte: ")
+lengte = int(lengte)
+bmi_uitslag = float(gewicht / (lengte * lengte))
+print(f"Je BMI is {bmi_uitslag:.1f}.")
