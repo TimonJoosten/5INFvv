@@ -1,15 +1,18 @@
 zin = input("Geef een zin: ")
-woordenlijst = []
-aantallenlijst = []
-eindlijst = []
-for woord in range(1):
-    woorden = zin.split()
-    woordenlijst.append(woorden)
-    for woord in woordenlijst:
-        aantal = woordenlijst.count(woord)
-        aantallenlijst.append(aantal)
-        for woord, cijfer in zip(woordenlijst, aantallenlijst):
-            eindlijst.append(woord) and eindlijst.append(":") and eindlijst.append(cijfer)
+woorden = zin.lower().split()
 
+unieke_lijst = []
+#unieke lijst maken met alle verschillende woorden
+for woord in woorden:
+    if woord not in unieke_lijst:
+        unieke_lijst.append(woord)
 
-print(f"{zin} Frequentie van woorden {eindlijst} ")
+#per uniek woord tellen hoe vaak het voorkomt
+for uniek in unieke_lijst:
+    teller = 0
+    for woord in woorden:
+        if woord == uniek:
+            teller = teller + 1
+    print(f"{uniek}: {teller}")
+
+        
