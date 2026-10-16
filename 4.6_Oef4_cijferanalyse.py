@@ -2,7 +2,7 @@ cijferlijst = {}
 aantal_vakken = int(input("Hoeveel vakken in totaal: "))
 for beurt in range(aantal_vakken):
     vak = input("Welk vak: ")
-    cijfer = int(input("Welk cijfer: "))
+    cijfer = float(input("Welk cijfer: "))
     cijferlijst[vak] = cijfer
 
 for cijfer in cijferlijst:
