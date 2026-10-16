@@ -1,28 +1,45 @@
-print("Telefoonboek Menu:")
-print("1. Contact toevoegen")
-print("2. Contact opzoeken")
-print("3. Contact verwijderen")
-print("4. Alle contacten weergeven")
-print("5. Afsluiten")
-keuze = int(input("Kies een optie:"))
-contact = {} 
-for keuze in range(1):
-    if keuze == 1:
-        ingevulde_naam = input("Wat is de naam: ")
-        ingevulde_telefoonnummer = input("Welk telefoonnummer: ")
-        contact["naam"] = ingevulde_naam
-        contact["telefoonnummer"] = ingevulde_telefoonnummer
-        print(f"{ingevulde_naam} is toegevoegd in je telefoonboek")
-        nieuwcontact = input("Wil je nog een contact toevoegen (ja/nee): ")
-        if nieuwcontact == "nee":
+telefoonboek = {} 
+afgesloten = False
+for beurt in range(1000):
+    if not afgesloten:
+        print("Telefoonboek Menu:")
+        print("1. Contact toevoegen")
+        print("2. Contact opzoeken")
+        print("3. Contact verwijderen")
+        print("4. Alle contacten weergeven")
+        print("5. Afsluiten")
+        keuze = (input("Kies een optie:"))
+        print()
+        if keuze == "1":
+            naam = input("Wat is de naam: ")
+            ingevulde_telefoonnummer = input("Welk telefoonnummer: ")
+            telefoonboek[naam] = ingevulde_telefoonnummer
+            print(f"{naam} is toegevoegd in je telefoonboek")
+            naam.lower()
             
-    if keuze == 2:
-        gezochte_naam = input("Welk contact zoek je: ")
-        if gezochte_naam not in contact:
-            print("Deze persoon staat niet in je contacten")
+        elif keuze == "2":
+            naam = input("Welk contact zoek je: ")
+            naam.lower()
+            if naam in telefoonboek:
+                print(f"{naam}:{telefoonboek[naam]}")
+            else:
+                print("Contact niet gevonden")
+        
+        elif keuze == "3":
+            naam = input("Welk contact wil je verwijderen: ")
+            naam.lower()
+            del telefoonboek[naam]
+
+        elif keuze == "4":
+            if len(telefoonboek) == 0:
+                print("Het telefoonboek is leeg.")
+            else:
+                print("Telefoonboek: ")
+                for naam, nummer in telefoonboek.items():
+                    print(f"{naam}: {nummer}")
+
+        elif keuze == "5":
+            print("Tot ziens")
+            afgesloten = True
         else:
-            print(f"Het telefoonnummer is:")
-
-
-
-    
+            print("Er is een fout opgetreden.")
