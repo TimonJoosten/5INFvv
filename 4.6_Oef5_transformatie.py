@@ -9,14 +9,29 @@ producten = {
 }
 
 dure_producten = {}
-for item, prijs in producten:
+boven_waarde = {}
+hoofdletters = {}
+for item, prijs in producten.items():
     nieuwe_prijs = prijs * 1.05
-    producten[item] = nieuwe_prijs
+    nieuwe_prijs = round(nieuwe_prijs, 2)
+    dure_producten[item] = nieuwe_prijs
 
-    if nieuwe_prijs >= 1.50:
-        dure_producten.append(item)
+for item, prijs in dure_producten.items():
+    if prijs >= 1.50:
+        boven_waarde[item] = prijs
 
+for item, prijs in producten.items():
+    item = item.upper()
+    hoofdletters[item] = prijs
+
+print("Productenlijst:")
+print(producten)
+print("5 procent duurder")
 print(dure_producten)
+print("Boven 1.50 euro")
+print(boven_waarde)
+
+print(hoofdletters)
 
         
 
